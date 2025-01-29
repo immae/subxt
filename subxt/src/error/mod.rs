@@ -35,7 +35,7 @@ pub enum Error {
     Io(#[from] std::io::Error),
     /// Codec error.
     #[error("Scale codec error: {0}")]
-    Codec(#[from] codec::Error),
+    Codec(#[from] parity_scale_codec::Error),
     /// Rpc error.
     #[error("Rpc error: {0}")]
     Rpc(#[from] RpcError),
@@ -180,7 +180,7 @@ pub enum BlockError {
     UnsupportedVersion(u8),
     /// Decoding error.
     #[error("Cannot decode extrinsic: {0}")]
-    DecodingError(codec::Error),
+    DecodingError(parity_scale_codec::Error),
 }
 
 impl From<CoreBlockError> for BlockError {

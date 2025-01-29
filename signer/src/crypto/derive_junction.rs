@@ -2,7 +2,7 @@
 // This file is dual-licensed as Apache-2.0 or GPL-3.0.
 // see LICENSE for license details.
 
-use codec::{Decode, Encode};
+use parity_scale_codec::{Decode, Encode};
 
 // This code is taken from sp_core::crypto::DeriveJunction. The logic should be identical,
 // though the API is tweaked a touch.

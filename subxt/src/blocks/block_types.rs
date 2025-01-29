@@ -13,7 +13,7 @@ use crate::{
     storage::Storage,
 };
 
-use codec::{Decode, Encode};
+use parity_scale_codec::{Decode, Encode};
 use futures::lock::Mutex as AsyncMutex;
 use std::sync::Arc;
 

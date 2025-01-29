@@ -2,7 +2,7 @@
 // This file is dual-licensed as Apache-2.0 or GPL-3.0.
 // see LICENSE for license details.
 
-use codec::{Decode, Encode};
+use parity_scale_codec::{Decode, Encode};
 use std::io::Read;
 use subxt_metadata::Metadata;
 
@@ -143,7 +143,7 @@ impl MetadataTestRunnerCaseBuilder {
         let rust_file = format!(
             r#"
             use subxt;
-            use subxt::ext::codec::Decode;
+            use subxt::ext::parity_scale_codec::Decode;
             use std::io::Read;
 
             #[subxt::subxt(runtime_metadata_path = "{tmp_macro_metadata_path}")]

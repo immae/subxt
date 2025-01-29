@@ -16,7 +16,7 @@ pub enum CodegenError {
     Fetch(#[from] FetchMetadataError),
     /// Cannot decode the metadata bytes.
     #[error("Could not decode metadata, only V14 and V15 metadata are supported: {0}")]
-    Decode(#[from] codec::Error),
+    Decode(#[from] parity_scale_codec::Error),
     /// Out of line modules are not supported.
     #[error("Out-of-line subxt modules are not supported, make sure you are providing a body to your module: pub mod polkadot {{ ... }}")]
     InvalidModule(Span),
@@ -88,7 +88,7 @@ pub enum FetchMetadataError {
     DecodeError(#[from] hex::FromHexError),
     /// Some SCALE codec error.
     #[error("Cannot scale encode/decode value: {0}")]
-    CodecError(#[from] codec::Error),
+    CodecError(#[from] parity_scale_codec::Error),
     /// JSON-RPC error fetching metadata.
     #[cfg(feature = "fetch-metadata")]
     #[error("Request error: {0}")]

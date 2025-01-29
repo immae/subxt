@@ -10,7 +10,7 @@
 //! Typically, this will be constructed by either:
 //!
 //! 1. Calling `Metadata::decode()` given some metadata bytes obtained
-//!    from a node (this uses [`codec::Decode`]).
+//!    from a node (this uses [`parity_scale_codec::Decode`]).
 //! 2. Obtaining [`frame_metadata::RuntimeMetadataPrefixed`], and then
 //!    using `.try_into()` to convert it into [`Metadata`].
 
@@ -767,8 +767,8 @@ impl<'a> CustomValueMetadata<'a> {
 
 // Support decoding metadata from the "wire" format directly into this.
 // Errors may be lost in the case that the metadata content is somehow invalid.
-impl codec::Decode for Metadata {
-    fn decode<I: codec::Input>(input: &mut I) -> Result<Self, codec::Error> {
+impl parity_scale_codec::Decode for Metadata {
+    fn decode<I: parity_scale_codec::Input>(input: &mut I) -> Result<Self, parity_scale_codec::Error> {
         let metadata = frame_metadata::RuntimeMetadataPrefixed::decode(input)?;
         let metadata = match metadata.1 {
             frame_metadata::RuntimeMetadata::V14(md) => md.try_into(),
@@ -783,8 +783,8 @@ impl codec::Decode for Metadata {
 // Metadata can be encoded, too. It will encode into a format that's compatible with what
 // Subxt requires, and that it can be decoded back from. The actual specifics of the format
 // can change over time.
-impl codec::Encode for Metadata {
-    fn encode_to<T: codec::Output + ?Sized>(&self, dest: &mut T) {
+impl parity_scale_codec::Encode for Metadata {
+    fn encode_to<T: parity_scale_codec::Output + ?Sized>(&self, dest: &mut T) {
         let m: frame_metadata::v15::RuntimeMetadataV15 = self.clone().into();
         let m: frame_metadata::RuntimeMetadataPrefixed = m.into();
         m.encode_to(dest)
@@ -794,7 +794,7 @@ impl codec::Encode for Metadata {
 #[cfg(test)]
 mod test {
     use super::*;
-    use codec::{Decode, Encode};
+    use parity_scale_codec::{Decode, Encode};
 
     fn load_metadata() -> Vec<u8> {
         std::fs::read("../artifacts/polkadot_metadata_full.scale").unwrap()

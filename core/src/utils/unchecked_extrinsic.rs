@@ -11,7 +11,7 @@
 
 use core::marker::PhantomData;
 
-use codec::{Decode, Encode};
+use parity_scale_codec::{Decode, Encode};
 use scale_decode::{visitor::DecodeAsTypeResult, DecodeAsType, IntoVisitor, TypeResolver, Visitor};
 
 use super::{Encoded, Static};
@@ -39,7 +39,7 @@ impl<Address, Call, Signature, Extra> UncheckedExtrinsic<Address, Call, Signatur
 impl<Address, Call, Signature, Extra> Decode
     for UncheckedExtrinsic<Address, Call, Signature, Extra>
 {
-    fn decode<I: codec::Input>(input: &mut I) -> Result<Self, codec::Error> {
+    fn decode<I: parity_scale_codec::Input>(input: &mut I) -> Result<Self, parity_scale_codec::Error> {
         // The bytes for an UncheckedExtrinsic are first a compact
         // encoded length, and then the bytes following. This is the
         // same encoding as a Vec, so easiest ATM is just to decode

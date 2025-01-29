@@ -1,5 +1,5 @@
 #![allow(missing_docs)]
-use subxt::ext::codec::Decode;
+use subxt::ext::parity_scale_codec::Decode;
 use subxt::metadata::Metadata;
 use subxt::utils::H256;
 use subxt::{config::PolkadotConfig, OfflineClient};

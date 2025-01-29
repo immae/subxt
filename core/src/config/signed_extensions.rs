@@ -18,7 +18,7 @@ use crate::Config;
 use alloc::borrow::ToOwned;
 use alloc::boxed::Box;
 use alloc::vec::Vec;
-use codec::{Compact, Encode};
+use parity_scale_codec::{Compact, Encode};
 use core::fmt::Debug;
 use derive_where::derive_where;
 use hashbrown::HashMap;

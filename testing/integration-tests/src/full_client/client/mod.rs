@@ -6,7 +6,7 @@ use crate::{
     subxt_test, test_context,
     utils::{node_runtime, wait_for_blocks},
 };
-use codec::{Decode, Encode};
+use parity_scale_codec::{Decode, Encode};
 
 #[cfg(fullclient)]
 use futures::StreamExt;

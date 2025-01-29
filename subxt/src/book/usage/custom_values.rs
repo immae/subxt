@@ -19,7 +19,7 @@
 //! Suppose, the custom types contain a value of type `Foo` under the name `"foo"` you can access it like in this example:
 //!
 //! ```rust,ignore
-//! use subxt::{OnlineClient, PolkadotConfig, ext::{codec::Decode, scale_decode::DecodeAsType}};
+//! use subxt::{OnlineClient, PolkadotConfig, ext::{parity_scale_codec::Decode, scale_decode::DecodeAsType}};
 //!
 //! #[derive(Decode, DecodeAsType, Debug)]
 //! struct Foo {

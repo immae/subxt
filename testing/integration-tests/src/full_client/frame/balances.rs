@@ -6,7 +6,7 @@ use crate::{
     node_runtime::{self, balances, runtime_types, system},
     subxt_test, test_context,
 };
-use codec::Decode;
+use parity_scale_codec::Decode;
 use subxt::{
     error::{DispatchError, Error, TokenError},
     utils::{AccountId32, MultiAddress},

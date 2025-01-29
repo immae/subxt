@@ -4,7 +4,7 @@
 
 //! Benchmarks for metadata hashing.
 
-use codec::Decode;
+use parity_scale_codec::Decode;
 use criterion::*;
 use frame_metadata::{RuntimeMetadata, RuntimeMetadataPrefixed};
 use std::{fs, path::Path};

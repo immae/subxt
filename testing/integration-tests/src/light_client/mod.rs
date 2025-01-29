@@ -28,7 +28,7 @@
 //!
 
 use crate::utils::node_runtime;
-use codec::Compact;
+use parity_scale_codec::Compact;
 use subxt::{client::OnlineClient, config::PolkadotConfig, lightclient::LightClient};
 use subxt_metadata::Metadata;
 

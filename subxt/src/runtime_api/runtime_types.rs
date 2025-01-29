@@ -9,7 +9,7 @@ use crate::{
     error::Error,
     Config,
 };
-use codec::Decode;
+use parity_scale_codec::Decode;
 use derive_where::derive_where;
 use std::{future::Future, marker::PhantomData};
 

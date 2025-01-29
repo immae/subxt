@@ -1,4 +1,4 @@
-use codec::{Decode};
+use parity_scale_codec::{Decode};
 use subxt::{config::substrate::H256, OfflineClient, PolkadotConfig};
 use subxt_metadata::Metadata;
 

@@ -6,7 +6,7 @@
 
 extern crate proc_macro;
 
-use codec::Decode;
+use parity_scale_codec::Decode;
 use darling::{ast::NestedMeta, FromMeta};
 use proc_macro::TokenStream;
 use proc_macro_error::{abort_call_site, proc_macro_error};

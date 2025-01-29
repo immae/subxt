@@ -63,7 +63,7 @@ use crate::metadata::Metadata;
 use crate::utils::Encoded;
 use alloc::borrow::{Cow, ToOwned};
 use alloc::vec::Vec;
-use codec::{Compact, Encode};
+use parity_scale_codec::{Compact, Encode};
 use payload::Payload;
 use signer::Signer as SignerT;
 use sp_crypto_hashing::blake2_256;

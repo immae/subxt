@@ -1,5 +1,5 @@
 #![allow(missing_docs)]
-use subxt::ext::codec::Compact;
+use subxt::ext::parity_scale_codec::Compact;
 use subxt::ext::frame_metadata::RuntimeMetadataPrefixed;
 use subxt::{OnlineClient, PolkadotConfig};
 

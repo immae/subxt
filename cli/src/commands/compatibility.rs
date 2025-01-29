@@ -3,7 +3,7 @@
 // see LICENSE for license details.
 
 use clap::Parser as ClapParser;
-use codec::Decode;
+use parity_scale_codec::Decode;
 use color_eyre::eyre::WrapErr;
 use jsonrpsee::client_transport::ws::Url;
 use serde::{Deserialize, Serialize};

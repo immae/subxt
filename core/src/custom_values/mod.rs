@@ -94,7 +94,7 @@ mod tests {
     use super::*;
 
     use alloc::collections::BTreeMap;
-    use codec::Encode;
+    use parity_scale_codec::Encode;
     use scale_decode::DecodeAsType;
     use scale_info::form::PortableForm;
     use scale_info::TypeInfo;

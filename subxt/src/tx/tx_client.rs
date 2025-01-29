@@ -10,7 +10,7 @@ use crate::{
     tx::{Payload, Signer as SignerT, TxProgress},
     utils::PhantomDataSendSync,
 };
-use codec::{Compact, Decode, Encode};
+use parity_scale_codec::{Compact, Decode, Encode};
 use derive_where::derive_where;
 
 /// A client for working with transactions.

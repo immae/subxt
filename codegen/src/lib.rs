@@ -48,7 +48,7 @@ pub use syn;
 /// Generating an interface using all of the defaults:
 ///
 /// ```rust
-/// use codec::Decode;
+/// use parity_scale_codec::Decode;
 /// use subxt_codegen::{ Metadata, CodegenBuilder };
 ///
 /// // Get hold of and decode some metadata:
@@ -323,8 +323,8 @@ fn subxt_type_gen_settings(
         derives,
         substitutes,
         decoded_bits_type_path: Some(parse_quote!(#crate_path::utils::bits::DecodedBits)),
-        compact_as_type_path: Some(parse_quote!(#crate_path::ext::codec::CompactAs)),
-        compact_type_path: Some(parse_quote!(#crate_path::ext::codec::Compact)),
+        compact_as_type_path: Some(parse_quote!(#crate_path::ext::parity_scale_codec::CompactAs)),
+        compact_type_path: Some(parse_quote!(#crate_path::ext::parity_scale_codec::Compact)),
         insert_codec_attributes: true,
         alloc_crate_path: AllocCratePath::Custom(parse_quote!(#crate_path::alloc)),
     }
@@ -337,15 +337,15 @@ fn default_derives(crate_path: &syn::Path) -> DerivesRegistry {
     let derives: [syn::Path; 5] = [
         parse_quote!(#crate_path::ext::scale_encode::EncodeAsType),
         parse_quote!(#crate_path::ext::scale_decode::DecodeAsType),
-        parse_quote!(#crate_path::ext::codec::Encode),
-        parse_quote!(#crate_path::ext::codec::Decode),
+        parse_quote!(#crate_path::ext::parity_scale_codec::Encode),
+        parse_quote!(#crate_path::ext::parity_scale_codec::Decode),
         parse_quote!(Debug),
     ];
 
     let attributes: [syn::Attribute; 3] = [
         parse_quote!(#[encode_as_type(crate_path = #encode_crate_path)]),
         parse_quote!(#[decode_as_type(crate_path = #decode_crate_path)]),
-        parse_quote!(#[codec(crate = #crate_path::ext::codec)]),
+        parse_quote!(#[codec(crate = #crate_path::ext::parity_scale_codec)]),
     ];
 
     let mut derives_registry = DerivesRegistry::new();

@@ -4,7 +4,7 @@ use subxt::{
     OnlineClient, PolkadotConfig,
 };
 
-use codec::Decode;
+use parity_scale_codec::Decode;
 
 #[subxt::subxt(runtime_metadata_path = "../artifacts/polkadot_metadata_small.scale")]
 pub mod polkadot {}

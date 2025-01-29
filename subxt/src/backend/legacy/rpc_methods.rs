@@ -7,7 +7,7 @@
 use crate::backend::rpc::{rpc_params, RpcClient, RpcSubscription};
 use crate::metadata::Metadata;
 use crate::{Config, Error};
-use codec::Decode;
+use parity_scale_codec::Decode;
 use derive_where::derive_where;
 use primitive_types::U256;
 use serde::{Deserialize, Serialize};

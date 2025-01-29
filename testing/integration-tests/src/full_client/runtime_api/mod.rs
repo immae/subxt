@@ -3,7 +3,7 @@
 // see LICENSE for license details.
 
 use crate::{node_runtime, subxt_test, test_context};
-use codec::Encode;
+use parity_scale_codec::Encode;
 use subxt::utils::AccountId32;
 use subxt_signer::sr25519::dev;
 

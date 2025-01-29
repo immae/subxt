@@ -1,5 +1,5 @@
 use clap::Args;
-use codec::Decode;
+use parity_scale_codec::Decode;
 
 use frame_metadata::RuntimeMetadataPrefixed;
 use std::collections::HashMap;

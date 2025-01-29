@@ -7,7 +7,7 @@
 //! for instance, to gain functionality without forcing a dependency on Substrate crates here.
 
 use alloc::vec::Vec;
-use codec::{Decode, Encode};
+use parity_scale_codec::{Decode, Encode};
 
 /// A multi-format address wrapper for on-chain accounts. This is a simplified version of Substrate's
 /// `sp_runtime::MultiAddress`. To obtain more functionality, convert this into that type (this conversion

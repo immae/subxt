@@ -48,7 +48,7 @@ impl<T: Config, Client: OfflineClientT<T>> CustomValuesClient<T, Client> {
 mod tests {
     use crate::custom_values::CustomValuesClient;
     use crate::{Metadata, OfflineClient, SubstrateConfig};
-    use codec::Encode;
+    use parity_scale_codec::Encode;
     use scale_decode::DecodeAsType;
     use scale_info::form::PortableForm;
     use scale_info::TypeInfo;

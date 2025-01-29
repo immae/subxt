@@ -2,7 +2,7 @@
 // This file is dual-licensed as Apache-2.0 or GPL-3.0.
 // see LICENSE for license details.
 
-use codec::Decode;
+use parity_scale_codec::Decode;
 use regex::Regex;
 use subxt_codegen::{syn, CodegenBuilder};
 use subxt_metadata::Metadata;

@@ -3,7 +3,7 @@
 // see LICENSE for license details.
 
 //! An ecdsa keypair implementation.
-use codec::Encode;
+use parity_scale_codec::Encode;
 
 use crate::crypto::{seed_from_entropy, DeriveJunction, SecretUri};
 use core::{fmt::Display, str::FromStr};

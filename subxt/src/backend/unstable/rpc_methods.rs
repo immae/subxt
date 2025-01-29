@@ -142,7 +142,7 @@ impl<T: Config> UnstableRpcMethods<T> {
             .await?;
 
         let header = header
-            .map(|h| codec::Decode::decode(&mut &*h.0))
+            .map(|h| parity_scale_codec::Decode::decode(&mut &*h.0))
             .transpose()?;
         Ok(header)
     }

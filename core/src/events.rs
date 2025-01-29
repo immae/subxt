@@ -40,7 +40,7 @@
 
 use alloc::sync::Arc;
 use alloc::vec::Vec;
-use codec::{Compact, Decode, Encode};
+use parity_scale_codec::{Compact, Decode, Encode};
 use derive_where::derive_where;
 use scale_decode::{DecodeAsFields, DecodeAsType};
 use subxt_metadata::PalletMetadata;
@@ -433,7 +433,7 @@ pub struct EventMetadataDetails<'a> {
 pub(crate) mod test_utils {
     use super::*;
     use crate::config::{Config, SubstrateConfig};
-    use codec::Encode;
+    use parity_scale_codec::Encode;
     use frame_metadata::{
         v15::{
             CustomMetadata, ExtrinsicMetadata, OuterEnums, PalletEventMetadata, PalletMetadata,
@@ -590,7 +590,7 @@ mod tests {
     };
     use crate::config::SubstrateConfig;
     use crate::events::Phase;
-    use codec::Encode;
+    use parity_scale_codec::Encode;
     use primitive_types::H256;
     use scale_info::TypeInfo;
     use scale_value::Value;
@@ -876,7 +876,7 @@ mod tests {
             A(#[codec(compact)] CompactWrapper),
         }
 
-        #[derive(Clone, Decode, Debug, PartialEq, codec::CompactAs, Encode, TypeInfo)]
+        #[derive(Clone, Decode, Debug, PartialEq, parity_scale_codec::CompactAs, Encode, TypeInfo)]
         struct CompactWrapper(u64);
 
         // Create fake metadata that knows about our single event, above:

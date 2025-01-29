@@ -19,7 +19,7 @@
 mod decode_encode_traits;
 mod metadata_type;
 
-use codec::Decode;
+use parity_scale_codec::Decode;
 
 pub use decode_encode_traits::{DecodeWithMetadata, EncodeWithMetadata};
 pub use metadata_type::Metadata;
@@ -27,8 +27,8 @@ pub use metadata_type::Metadata;
 /// Attempt to decode some bytes into [`Metadata`], returning an error
 /// if decoding fails.
 ///
-/// This is a shortcut for importing [`codec::Decode`] and using the
+/// This is a shortcut for importing [`parity_scale_codec::Decode`] and using the
 /// implementation of that on [`Metadata`].
-pub fn decode_from(bytes: &[u8]) -> Result<Metadata, codec::Error> {
+pub fn decode_from(bytes: &[u8]) -> Result<Metadata, parity_scale_codec::Error> {
     Metadata::decode(&mut &*bytes)
 }

@@ -3,7 +3,7 @@
 // see LICENSE for license details.
 
 use crate::{subxt_test, test_context};
-use codec::{Compact, Encode};
+use parity_scale_codec::{Compact, Encode};
 use futures::StreamExt;
 
 #[cfg(fullclient)]

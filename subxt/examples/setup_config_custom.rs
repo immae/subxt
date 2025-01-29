@@ -1,5 +1,5 @@
 #![allow(missing_docs)]
-use codec::Encode;
+use parity_scale_codec::Encode;
 use subxt::client::ClientState;
 use subxt::config::{
     Config, ExtrinsicParams, ExtrinsicParamsEncoder, ExtrinsicParamsError, RefineParams,

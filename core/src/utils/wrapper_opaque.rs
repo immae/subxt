@@ -3,7 +3,7 @@
 // see LICENSE for license details.
 
 use super::PhantomDataSendSync;
-use codec::{Compact, Decode, DecodeAll, Encode};
+use parity_scale_codec::{Compact, Decode, DecodeAll, Encode};
 use derive_where::derive_where;
 use scale_decode::{ext::scale_type_resolver::visitor, IntoVisitor, TypeResolver, Visitor};
 use scale_encode::EncodeAsType;

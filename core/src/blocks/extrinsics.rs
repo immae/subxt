@@ -11,7 +11,7 @@ use crate::{
 };
 use alloc::sync::Arc;
 use alloc::vec::Vec;
-use codec::Decode;
+use parity_scale_codec::Decode;
 use scale_decode::DecodeAsType;
 use subxt_metadata::PalletMetadata;
 
@@ -462,7 +462,7 @@ mod tests {
     use super::*;
     use crate::config::SubstrateConfig;
     use assert_matches::assert_matches;
-    use codec::{Decode, Encode};
+    use parity_scale_codec::{Decode, Encode};
     use frame_metadata::v15::{CustomMetadata, OuterEnums};
     use frame_metadata::{
         v15::{ExtrinsicMetadata, PalletCallMetadata, PalletMetadata, RuntimeMetadataV15},

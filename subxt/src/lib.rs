@@ -103,7 +103,7 @@ pub use crate::{
 
 /// Re-export external crates that are made use of in the subxt API.
 pub mod ext {
-    pub use codec;
+    pub use parity_scale_codec;
     pub use frame_metadata;
     pub use futures;
     pub use scale_bits;
@@ -184,25 +184,25 @@ pub mod ext {
 /// # #[derive(
 /// #     scale_encode::EncodeAsType,
 /// #     scale_decode::DecodeAsType,
-/// #     codec::Encode,
-/// #     codec::Decode,
+/// #     parity_scale_codec::Encode,
+/// #     parity_scale_codec::Decode,
 /// #     Clone,
 /// #     Debug,
 /// # )]
 /// // In reality this needs some traits implementing on
 /// // it to allow it to be used in place of Perbill:
 /// pub struct Foo(u32);
-/// # impl codec::CompactAs for Foo {
+/// # impl parity_scale_codec::CompactAs for Foo {
 /// #     type As = u32;
 /// #     fn encode_as(&self) -> &Self::As {
 /// #         &self.0
 /// #     }
-/// #     fn decode_from(x: Self::As) -> Result<Self, codec::Error> {
+/// #     fn decode_from(x: Self::As) -> Result<Self, parity_scale_codec::Error> {
 /// #         Ok(Foo(x))
 /// #     }
 /// # }
-/// # impl From<codec::Compact<Foo>> for Foo {
-/// #     fn from(v: codec::Compact<Foo>) -> Foo {
+/// # impl From<parity_scale_codec::Compact<Foo>> for Foo {
+/// #     fn from(v: parity_scale_codec::Compact<Foo>) -> Foo {
 /// #         v.0
 /// #     }
 /// # }
@@ -307,12 +307,12 @@ pub mod ext {
 ///     runtime_metadata_path = "../artifacts/polkadot_metadata_full.scale",
 ///     runtime_types_only,
 ///     no_default_derives,
-///     derive_for_all_types="codec::Encode, codec::Decode"
+///     derive_for_all_types="parity_scale_codec::Encode, parity_scale_codec::Decode"
 /// )]
 /// mod polkadot {}
 /// ```
 ///
-/// **Note**: At the moment, you must derive at least one of `codec::Encode` or `codec::Decode` or `scale_encode::EncodeAsType` or
+/// **Note**: At the moment, you must derive at least one of `parity_scale_codec::Encode` or `parity_scale_codec::Decode` or `scale_encode::EncodeAsType` or
 /// `scale_decode::DecodeAsType` (because we add `#[codec(..)]` attributes on some fields/types during codegen), and you must use this
 /// feature in conjunction with `runtime_types_only` (or manually specify a bunch of defaults to make codegen work properly when
 /// generating the subxt interfaces).

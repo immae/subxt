@@ -410,7 +410,7 @@ fn generate_outer_error_enum_type(
 #[cfg(test)]
 mod tests {
     use super::*;
-    use codec::Decode;
+    use parity_scale_codec::Decode;
     use frame_metadata::{
         v14::ExtrinsicMetadata, v15::RuntimeMetadataV15, RuntimeMetadata, RuntimeMetadataPrefixed,
     };

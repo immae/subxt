@@ -172,7 +172,7 @@ pub struct StaticStorageKey<K: ?Sized> {
     _marker: core::marker::PhantomData<K>,
 }
 
-impl<K: codec::Encode + ?Sized> StaticStorageKey<K> {
+impl<K: parity_scale_codec::Encode + ?Sized> StaticStorageKey<K> {
     /// Creates a new static storage key
     pub fn new(key: &K) -> Self {
         StaticStorageKey {
@@ -182,7 +182,7 @@ impl<K: codec::Encode + ?Sized> StaticStorageKey<K> {
     }
 }
 
-impl<K: codec::Decode + ?Sized> StaticStorageKey<K> {
+impl<K: parity_scale_codec::Decode + ?Sized> StaticStorageKey<K> {
     /// Decodes the encoded inner bytes into the type `K`.
     pub fn decoded(&self) -> Result<K, Error> {
         let decoded = K::decode(&mut self.bytes())?;
@@ -359,7 +359,7 @@ const _: () = {
 #[cfg(test)]
 mod tests {
 
-    use codec::Encode;
+    use parity_scale_codec::Encode;
     use scale_info::{meta_type, PortableRegistry, Registry, TypeInfo};
     use subxt_metadata::StorageHasher;
 

@@ -4,7 +4,7 @@
 
 use crate::utils::{validate_url_security, FileOrUrl};
 use clap::Parser as ClapParser;
-use codec::{Decode, Encode};
+use parity_scale_codec::{Decode, Encode};
 use color_eyre::eyre::{self, bail};
 use frame_metadata::{v15::RuntimeMetadataV15, RuntimeMetadata, RuntimeMetadataPrefixed};
 use std::{io::Write, path::PathBuf};

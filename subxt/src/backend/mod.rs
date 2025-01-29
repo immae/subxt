@@ -17,7 +17,7 @@ use crate::error::Error;
 use crate::metadata::Metadata;
 use crate::Config;
 use async_trait::async_trait;
-use codec::{Decode, Encode};
+use parity_scale_codec::{Decode, Encode};
 use futures::{Stream, StreamExt};
 use std::pin::Pin;
 use std::sync::Arc;
@@ -123,7 +123,7 @@ pub trait BackendExt<T: Config>: Backend<T> {
 
     /// The same as a [`Backend::call()`], but it will also attempt to decode the
     /// result into the given type, which is a fairly common operation.
-    async fn call_decoding<D: codec::Decode>(
+    async fn call_decoding<D: parity_scale_codec::Decode>(
         &self,
         method: &str,
         call_parameters: Option<&[u8]>,

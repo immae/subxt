@@ -109,8 +109,8 @@
 //! );
 //! ```
 //!
-//! Each element of the `SignedExtra` tuple implements [codec::Encode] and `sp_runtime::traits::SignedExtension`
-//! which has an associated type `AdditionalSigned` that also implements [codec::Encode]. Let's look at the underlying types
+//! Each element of the `SignedExtra` tuple implements [parity_scale_codec::Encode] and `sp_runtime::traits::SignedExtension`
+//! which has an associated type `AdditionalSigned` that also implements [parity_scale_codec::Encode]. Let's look at the underlying types
 //! for each tuple element. All zero-sized types have been replaced by `()` for simplicity.
 //!
 //! | tuple element                                                                                                             | struct type                                                                                                                                              | `AdditionalSigned` type          |

@@ -5,7 +5,7 @@
 //! Helper methods for fetching metadata from a file or URL.
 
 use crate::error::FetchMetadataError;
-use codec::{Decode, Encode};
+use parity_scale_codec::{Decode, Encode};
 use jsonrpsee::{
     async_client::ClientBuilder,
     client_transport::ws::WsTransportClientBuilder,

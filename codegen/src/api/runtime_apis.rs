@@ -205,7 +205,7 @@ pub fn generate_runtime_apis(
             use super::root_mod;
             use super::#types_mod_ident;
 
-            use #crate_path::ext::codec::Encode;
+            use #crate_path::ext::parity_scale_codec::Encode;
 
             pub struct RuntimeApi;
 

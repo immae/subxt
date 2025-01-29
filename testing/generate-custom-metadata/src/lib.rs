@@ -2,7 +2,7 @@
 // This file is dual-licensed as Apache-2.0 or GPL-3.0.
 // see LICENSE for license details.
 
-use codec::Encode;
+use parity_scale_codec::Encode;
 use frame_metadata::v15::{CustomMetadata, ExtrinsicMetadata, OuterEnums, RuntimeMetadataV15};
 use frame_metadata::RuntimeMetadataPrefixed;
 

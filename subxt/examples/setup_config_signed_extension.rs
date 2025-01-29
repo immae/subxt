@@ -1,5 +1,5 @@
 #![allow(missing_docs)]
-use codec::Encode;
+use parity_scale_codec::Encode;
 use scale_encode::EncodeAsType;
 use scale_info::PortableRegistry;
 use subxt::client::ClientState;

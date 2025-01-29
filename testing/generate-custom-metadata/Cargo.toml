@@ -14,4 +14,4 @@ homepage.workspace = true
 [dependencies]
 scale-info = { workspace = true, features = ["std", "bit-vec"] }
 frame-metadata = { workspace = true, features = ["decode", "current"] }
-codec = { package = "parity-scale-codec", workspace = true, features = ["std", "derive", "bit-vec"] }
+parity-scale-codec = { workspace = true, features = ["std", "derive", "bit-vec"] }

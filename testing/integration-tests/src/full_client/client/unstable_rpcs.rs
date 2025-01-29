@@ -7,7 +7,7 @@
 
 use crate::{subxt_test, test_context, utils::node_runtime};
 use assert_matches::assert_matches;
-use codec::Encode;
+use parity_scale_codec::Encode;
 use futures::Stream;
 use subxt::{
     backend::unstable::rpc_methods::{

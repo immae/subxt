@@ -63,7 +63,7 @@ async fn storage_map_lookup() -> Result<(), subxt::Error> {
 #[cfg(fullclient)]
 #[subxt_test]
 async fn storage_n_mapish_key_is_properly_created() -> Result<(), subxt::Error> {
-    use codec::Encode;
+    use parity_scale_codec::Encode;
     use node_runtime::runtime_types::sp_core::crypto::KeyTypeId;
 
     let ctx = test_context().await;

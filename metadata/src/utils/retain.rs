@@ -282,7 +282,7 @@ mod tests {
     use super::*;
     use crate::Metadata;
     use assert_matches::assert_matches;
-    use codec::Decode;
+    use parity_scale_codec::Decode;
     use frame_metadata::{RuntimeMetadata, RuntimeMetadataPrefixed};
     use std::{fs, path::Path};
 

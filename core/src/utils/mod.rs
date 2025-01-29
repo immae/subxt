@@ -17,7 +17,7 @@ use alloc::borrow::ToOwned;
 use alloc::format;
 use alloc::string::String;
 use alloc::vec::Vec;
-use codec::{Compact, Decode, Encode};
+use parity_scale_codec::{Compact, Decode, Encode};
 use derive_where::derive_where;
 
 pub use account_id::AccountId32;
@@ -34,7 +34,7 @@ pub use wrapper_opaque::WrapperKeepOpaque;
 #[derive(Clone, Debug, Eq, PartialEq, Ord, PartialOrd)]
 pub struct Encoded(pub Vec<u8>);
 
-impl codec::Encode for Encoded {
+impl parity_scale_codec::Encode for Encoded {
     fn encode(&self) -> Vec<u8> {
         self.0.to_owned()
     }
@@ -42,7 +42,7 @@ impl codec::Encode for Encoded {
 
 /// Decodes a compact encoded value from the beginning of the provided bytes,
 /// returning the value and any remaining bytes.
-pub fn strip_compact_prefix(bytes: &[u8]) -> Result<(u64, &[u8]), codec::Error> {
+pub fn strip_compact_prefix(bytes: &[u8]) -> Result<(u64, &[u8]), parity_scale_codec::Error> {
     let cursor = &mut &*bytes;
     let val = <Compact<u64>>::decode(cursor)?;
     Ok((val.0, *cursor))

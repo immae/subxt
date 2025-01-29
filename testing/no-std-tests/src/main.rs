@@ -35,7 +35,7 @@ extern crate alloc;
 /// We want all code included to compile fine for the `thumbv7em-none-eabi` target.
 fn compile_test() {
     // Subxt Metadata compiles:
-    use codec::Decode;
+    use parity_scale_codec::Decode;
     let bytes: alloc::vec::Vec<u8> = alloc::vec![0, 1, 2, 3, 4];
     subxt_metadata::Metadata::decode(&mut &bytes[..]).expect_err("invalid byte sequence");
 

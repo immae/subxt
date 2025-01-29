@@ -17,7 +17,7 @@ keywords = ["parity", "subxt", "extrinsic", "no-std"]
 [features]
 default = ["std"]
 std = [
-    "codec/std",
+    "parity-scale-codec/std",
     "scale-info/std",
     "scale-value/std",
     "scale-bits/std",
@@ -36,7 +36,7 @@ substrate-compat = ["sp-core", "sp-runtime"]
 
 [dependencies]
 
-codec = { package = "parity-scale-codec", workspace = true, default-features = false, features = ["derive"] }
+parity-scale-codec = { workspace = true, default-features = false, features = ["derive"] }
 scale-info = { workspace = true, default-features = false, features = ["bit-vec"] }
 scale-value = { workspace = true, default-features = false }
 scale-bits = { workspace = true, default-features = false }
@@ -68,7 +68,7 @@ tracing = { workspace = true, default-features = false }
 [dev-dependencies]
 assert_matches = { workspace = true }
 bitvec = { workspace = true }
-codec = { workspace = true, features = ["derive", "bit-vec"] }
+parity-scale-codec = { workspace = true, features = ["derive", "bit-vec"] }
 subxt-macro = { workspace = true }
 subxt-signer = { workspace = true, features = ["sr25519", "subxt"] }
 sp-core = { workspace = true }

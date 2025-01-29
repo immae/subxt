@@ -9,7 +9,7 @@ use crate::{
     metadata::DecodeWithMetadata,
     Config,
 };
-use codec::Decode;
+use parity_scale_codec::Decode;
 use derive_where::derive_where;
 use futures::StreamExt;
 use std::{future::Future, marker::PhantomData};

@@ -14,7 +14,7 @@ use subxt_metadata::StorageHasher;
 #[derive(Debug)]
 pub enum Error {
     /// Codec error.
-    Codec(codec::Error),
+    Codec(parity_scale_codec::Error),
     /// Metadata error.
     Metadata(MetadataError),
     /// Storage address error.
@@ -53,7 +53,7 @@ impl_from!(scale_decode::Error => Error::Decode);
 impl_from!(scale_decode::visitor::DecodeError => Error::Decode);
 impl_from!(scale_encode::Error => Error::Encode);
 impl_from!(StorageAddressError => Error::StorageAddress);
-impl_from!(codec::Error => Error::Codec);
+impl_from!(parity_scale_codec::Error => Error::Codec);
 
 /// Block error
 #[derive(Clone, Debug, Eq, PartialEq)]
@@ -64,7 +64,7 @@ pub enum BlockError {
     /// The extrinsic has an unsupported version.
     UnsupportedVersion(u8),
     /// Decoding error.
-    DecodingError(codec::Error),
+    DecodingError(parity_scale_codec::Error),
 }
 
 impl Display for BlockError {

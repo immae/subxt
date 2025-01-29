@@ -74,8 +74,8 @@ impl TryFrom<frame_metadata::RuntimeMetadataPrefixed> for Metadata {
     }
 }
 
-impl codec::Decode for Metadata {
-    fn decode<I: codec::Input>(input: &mut I) -> Result<Self, codec::Error> {
+impl parity_scale_codec::Decode for Metadata {
+    fn decode<I: parity_scale_codec::Input>(input: &mut I) -> Result<Self, parity_scale_codec::Error> {
         subxt_metadata::Metadata::decode(input).map(Metadata::from)
     }
 }

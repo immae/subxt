@@ -4,7 +4,7 @@
 
 use crate::utils::{validate_url_security, FileOrUrl};
 use clap::Parser as ClapParser;
-use codec::Decode;
+use parity_scale_codec::Decode;
 use color_eyre::eyre::eyre;
 use scale_typegen_description::scale_typegen::typegen::{
     settings::substitutes::path_segments,

@@ -1,7 +1,7 @@
 use crate::utils::validate_url_security;
 use crate::utils::FileOrUrl;
 use clap::{command, Parser, Subcommand};
-use codec::Decode;
+use parity_scale_codec::Decode;
 use color_eyre::eyre::eyre;
 use color_eyre::owo_colors::OwoColorize;
 use indoc::writedoc;

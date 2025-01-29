@@ -74,8 +74,8 @@ impl Era {
 
 // Both copied from `sp_runtime::generic::Era`; this is the wire interface and so
 // it's really the most important bit here.
-impl codec::Encode for Era {
-    fn encode_to<T: codec::Output + ?Sized>(&self, output: &mut T) {
+impl parity_scale_codec::Encode for Era {
+    fn encode_to<T: parity_scale_codec::Output + ?Sized>(&self, output: &mut T) {
         match self {
             Self::Immortal => output.push_byte(0),
             Self::Mortal { period, phase } => {
@@ -87,8 +87,8 @@ impl codec::Encode for Era {
         }
     }
 }
-impl codec::Decode for Era {
-    fn decode<I: codec::Input>(input: &mut I) -> Result<Self, codec::Error> {
+impl parity_scale_codec::Decode for Era {
+    fn decode<I: parity_scale_codec::Input>(input: &mut I) -> Result<Self, parity_scale_codec::Error> {
         let first = input.read_byte()?;
         if first == 0 {
             Ok(Self::Immortal)

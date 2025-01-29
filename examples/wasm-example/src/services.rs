@@ -3,7 +3,7 @@ use js_sys::Promise;
 use serde::{Deserialize, Serialize};
 use serde_json::json;
 use std::fmt::Write;
-use subxt::ext::codec::{Compact, Encode};
+use subxt::ext::parity_scale_codec::{Compact, Encode};
 use subxt::{self, OnlineClient, PolkadotConfig};
 use wasm_bindgen::prelude::*;
 use wasm_bindgen_futures::JsFuture;

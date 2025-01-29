@@ -46,7 +46,7 @@ pub use metadata::Metadata;
 
 /// Re-exports of some of the key external crates.
 pub mod ext {
-    pub use codec;
+    pub use parity_scale_codec;
     pub use scale_decode;
     pub use scale_encode;
     pub use scale_value;

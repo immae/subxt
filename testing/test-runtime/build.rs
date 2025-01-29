@@ -2,7 +2,7 @@
 // This file is dual-licensed as Apache-2.0 or GPL-3.0.
 // see LICENSE for license details.
 
-use codec::{Decode, Encode};
+use parity_scale_codec::{Decode, Encode};
 use std::{env, fs, path::Path};
 use substrate_runner::{Error as SubstrateNodeError, SubstrateNode};
 

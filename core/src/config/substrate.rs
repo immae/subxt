@@ -7,7 +7,7 @@
 use super::{Config, DefaultExtrinsicParams, DefaultExtrinsicParamsBuilder, Hasher, Header};
 use alloc::format;
 use alloc::vec::Vec;
-use codec::{Decode, Encode};
+use parity_scale_codec::{Decode, Encode};
 use serde::{Deserialize, Serialize};
 
 pub use crate::utils::{AccountId32, MultiAddress, MultiSignature};
@@ -172,7 +172,7 @@ impl Encode for DigestItem {
     }
 }
 impl Decode for DigestItem {
-    fn decode<I: codec::Input>(input: &mut I) -> Result<Self, codec::Error> {
+    fn decode<I: parity_scale_codec::Input>(input: &mut I) -> Result<Self, parity_scale_codec::Error> {
         let item_type: DigestItemType = Decode::decode(input)?;
         match item_type {
             DigestItemType::PreRuntime => {

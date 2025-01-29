@@ -6,7 +6,7 @@
 
 use alloc::vec;
 use alloc::vec::Vec;
-use codec::{Compact, Input};
+use parity_scale_codec::{Compact, Input};
 use core::marker::PhantomData;
 use scale_bits::{
     scale::format::{Format, OrderFormat, StoreFormat},
@@ -96,8 +96,8 @@ impl<Store, Order> core::iter::FromIterator<bool> for DecodedBits<Store, Order> 
     }
 }
 
-impl<Store: BitStore, Order: BitOrder> codec::Decode for DecodedBits<Store, Order> {
-    fn decode<I: Input>(input: &mut I) -> Result<Self, codec::Error> {
+impl<Store: BitStore, Order: BitOrder> parity_scale_codec::Decode for DecodedBits<Store, Order> {
+    fn decode<I: Input>(input: &mut I) -> Result<Self, parity_scale_codec::Error> {
         /// Equivalent of `BitSlice::MAX_BITS` on 32bit machine.
         const ARCH32BIT_BITSLICE_MAX_BITS: u32 = 0x1fff_ffff;
 
@@ -114,7 +114,7 @@ impl<Store: BitStore, Order: BitOrder> codec::Decode for DecodedBits<Store, Orde
         // NOTE: We could reduce allocations if it would be possible to directly
         // decode from an `Input` type using a custom format (rather than default <u8, Lsb0>)
         // for the `Bits` type.
-        let mut storage = codec::Encode::encode(&Compact(bits));
+        let mut storage = parity_scale_codec::Encode::encode(&Compact(bits));
         let prefix_len = storage.len();
         storage.reserve_exact(bytes_needed);
         storage.extend(vec![0; bytes_needed]);
@@ -131,7 +131,7 @@ impl<Store: BitStore, Order: BitOrder> codec::Decode for DecodedBits<Store, Orde
     }
 }
 
-impl<Store: BitStore, Order: BitOrder> codec::Encode for DecodedBits<Store, Order> {
+impl<Store: BitStore, Order: BitOrder> parity_scale_codec::Encode for DecodedBits<Store, Order> {
     fn size_hint(&self) -> usize {
         self.bits.size_hint()
     }
@@ -196,7 +196,7 @@ mod tests {
     use core::fmt::Debug;
 
     use bitvec::vec::BitVec;
-    use codec::Decode as _;
+    use parity_scale_codec::Decode as _;
 
     // NOTE: We don't use `bitvec::order` types in our implementation, since we
     // don't want to depend on `bitvec`. Rather than reimplementing the unsafe
@@ -219,15 +219,15 @@ mod tests {
     >(
         input: impl IntoIterator<Item = &'a bool>,
     ) where
-        BitVec<Store, <Order as ToBitVec>::Order>: codec::Encode + codec::Decode,
+        BitVec<Store, <Order as ToBitVec>::Order>: parity_scale_codec::Encode + parity_scale_codec::Decode,
     {
         let input: Vec<_> = input.into_iter().copied().collect();
 
         let decoded_bits = DecodedBits::<Store, Order>::from_iter(input.clone());
         let bitvec = BitVec::<Store, <Order as ToBitVec>::Order>::from_iter(input);
 
-        let decoded_bits_encoded = codec::Encode::encode(&decoded_bits);
-        let bitvec_encoded = codec::Encode::encode(&bitvec);
+        let decoded_bits_encoded = parity_scale_codec::Encode::encode(&decoded_bits);
+        let bitvec_encoded = parity_scale_codec::Encode::encode(&bitvec);
         assert_eq!(decoded_bits_encoded, bitvec_encoded);
 
         let decoded_bits_decoded =

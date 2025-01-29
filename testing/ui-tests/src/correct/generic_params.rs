@@ -1,4 +1,4 @@
-use codec::{Decode, Encode};
+use parity_scale_codec::{Decode, Encode};
 use subxt::utils::AccountId32;
 
 #[derive(Encode, Decode, subxt::ext::scale_encode::EncodeAsType, subxt::ext::scale_decode::DecodeAsType, Debug)]

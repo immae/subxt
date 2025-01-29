@@ -12,7 +12,7 @@ use alloc::borrow::{Cow, ToOwned};
 use alloc::string::String;
 
 use alloc::vec::Vec;
-use codec::Encode;
+use parity_scale_codec::Encode;
 use scale_encode::EncodeAsFields;
 use scale_value::{Composite, Value, ValueDef, Variant};
 
